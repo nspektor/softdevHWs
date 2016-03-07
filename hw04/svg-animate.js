@@ -19,7 +19,7 @@ logo.src = "dvd.png";
 var circle =  function(e){
     //circle button
     e.preventDefault();
-    intervalID=window.setInterval(drawDot(), 16);
+    window.setInterval(drawDot(), 16);
 };
 
 var stopIt = function(e){
@@ -35,6 +35,7 @@ var dvd = function(e){
 
 var drawDot = function(){
     var c = document.createElementNS( "http://www.w3.org/2000/svg", "circle");
+    //var c = document.getElementByTagName("circle")[0];
     c.setAttribute("cx", c.width/2);
     c.setAttribute("cy", c.height/2);
     c.setAttribute("r", radius.toString());
@@ -43,15 +44,6 @@ var drawDot = function(){
     c.addEventListener("click", change);
     pic.appendChild(c);
 
-    ctx.clearRect(0, 0, 538, 538);
-    
-    //circle drawing
-    ctx.beginPath();
-    ctx.fillStyle = "#6666ff";
-    ctx.arc(c.width/2, c.height/2, radius, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.fill();
-    ctx.closePath();
     if (growing){
 	radius ++;
     }
@@ -62,15 +54,15 @@ var drawDot = function(){
 	growing = !growing;
     }
 
-    ctx.strokeRect(0, 0, 538, 538);
-    requestID = window.requestAnimationFrame(drawDot);
+    intervalID=window.setInterval(drawDot(), 16);
+
 };
 
 
 
 //intervalID = window.setInterval(function, 16)
-//document.getElementByTagName("circle")[0];
-//radius = parseInt(c.getAttribute("r"));
+
+//radius =parseInt(c.getAttribute("r"));
 //c.setAttribute("r", radius.toString());
 
 //var c = document.getElementNS(svgwebIDthing, "circle")
