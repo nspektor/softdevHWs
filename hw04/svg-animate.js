@@ -3,7 +3,7 @@
 //hw04
 //2016-03-01
 
-//scg connection
+//svg connection
 var pic = document.getElementById("vimage");
 //button connection
 var circleButton = document.getElementById("circle");
