@@ -1,0 +1,24 @@
+def inc(x):
+    return x+1
+
+def dec(x):
+    return x-1
+
+f = inc
+print f(5) 
+
+flist = [inc,dec]
+
+print flist[1](5) 
+
+
+def makeAdder(n):
+    def inner(x):
+        return x+n
+    return inner
+
+add3 = makeAdder(3)
+add5 = makeAdder(5)
+
+print add3(10)
+print add5(10)
